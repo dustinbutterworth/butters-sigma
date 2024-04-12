@@ -1,0 +1,35 @@
+title: Operation MidnightEclipse - DNS Requests to Known Malicious Domain
+id: 49e5365d-ac3b-4d54-90d7-1d695a71d376
+related:
+  - id: 7f13b29f-0e70-465d-8769-4964277b4ff5
+    type: similar
+  - id: 15b54394-02bb-4a03-8621-f157127cded0
+    type: similar
+  - id: 57deaee4-dd63-4bb5-b408-29c1967c9cef
+    type: similar
+  - id: 91ce531e-b6b6-45cb-a102-07ad0ed00a97
+    type: similar
+status: test
+description: Detects DNS requests to a domain associated with the UPSTYLE backdoor exploiting CVE-2024-3400.
+author: Dustin Butterworth
+date: 2024/04/12
+tags:
+  - attack.initial_access
+  - attack.1189
+references:
+  - https://unit42.paloaltonetworks.com/cve-2024-3400/#post-133365-_ydqdbjg0dngh
+logsource:
+  product: pan_os
+  category: dns_query
+detection:
+  selection:
+    event_simpleName:
+      - DnsRequest*
+  filter:
+    DomainName:
+      - 'nhdata.s3-us-west-2.amazonaws.com'
+  condition: selection and filter
+falsepositives:
+  - Legitimate access to the domain, which needs to be whitelisted after investigation.
+level: critical
+

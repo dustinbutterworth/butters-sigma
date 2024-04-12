@@ -1,0 +1,40 @@
+title: Operation MidnightEclipse - Malicious Outbound TCP Connections
+id: 57deaee4-dd63-4bb5-b408-29c1967c9cef
+related:
+    - id: 7f13b29f-0e70-465d-8769-4964277b4ff5
+      type: similar
+    - id: 15b54394-02bb-4a03-8621-f157127cded0
+      type: similar
+    - id: 49e5365d-ac3b-4d54-90d7-1d695a71d376
+      type: similar
+    - id: 91ce531e-b6b6-45cb-a102-07ad0ed00a97
+      type: similar
+status: test
+description: Detects outbound network connections from threat actor downloading backdoor python script for Operation MidnightEclipse exploiting CVE-2024-3400.
+author: Dustin Butterworth
+date: 2024/04/12
+tags:
+    - attack.initial_access
+    - attack.t1190
+    - attack.impact
+    - attack.t1496
+    - attack.exfiltration
+    - attack.t1020
+    - attack.execution
+    - attack.t1059
+references:
+    - https://unit42.paloaltonetworks.com/cve-2024-3400/#post-133365-_ydqdbjg0dngh
+logsource:
+    product: pan_os
+    category: network_connection
+detection:
+    selection:
+        event_simpleName:
+            - 'NetworkConnectIP4'
+    filter:
+        dest:
+            - '172.233.228.93'
+    condition: selection and filter
+falsepositives:
+    - Unknown
+level: critical

@@ -16,9 +16,8 @@ references:
 author: Dustin Butterworth
 date: 2024/04/12
 tags:
-    - attack.exfiltration
-    - attack.t1567
-    - attack.t1105
+    - attack.t1053.003
+    - attack.t1547.001
 logsource:
     category: process_creation
     product: pan_os

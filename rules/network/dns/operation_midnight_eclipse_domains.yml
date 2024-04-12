@@ -14,8 +14,8 @@ description: Detects DNS requests to a domain associated with the UPSTYLE backdo
 author: Dustin Butterworth
 date: 2024/04/12
 tags:
-  - attack.initial_access
-  - attack.1189
+  - attack.t1053.003
+  - attack.t1547.001
 references:
   - https://unit42.paloaltonetworks.com/cve-2024-3400/#post-133365-_ydqdbjg0dngh
 logsource:

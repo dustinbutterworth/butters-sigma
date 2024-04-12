@@ -32,4 +32,3 @@ detection:
 falsepositives:
   - Legitimate access to the domain, which needs to be whitelisted after investigation.
 level: critical
-

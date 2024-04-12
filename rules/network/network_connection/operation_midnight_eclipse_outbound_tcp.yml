@@ -27,8 +27,8 @@ detection:
             - 'NetworkConnectIP4'
     filter:
         dest:
-            - '172.233.228.93'
-            - '144.172.79.92'
+            - '172.233.228[.]93'
+            - '144.172.79[.]92'
     condition: selection and filter
 falsepositives:
     - Unknown

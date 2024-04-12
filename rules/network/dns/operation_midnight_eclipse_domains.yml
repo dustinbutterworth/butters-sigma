@@ -27,7 +27,7 @@ detection:
       - DnsRequest*
   filter:
     DomainName:
-      - 'nhdata.s3-us-west-2.amazonaws.com'
+      - 'nhdata.s3-us-west-2.amazonaws[.]com'
   condition: selection and filter
 falsepositives:
   - Legitimate access to the domain, which needs to be whitelisted after investigation.
